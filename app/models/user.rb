@@ -35,7 +35,8 @@
 #
 class User < ApplicationRecord
   devise :masqueradable, :database_authenticatable, :confirmable, :registerable, :trackable, :recoverable,
-         :rememberable, :validatable, :omniauthable
+         :rememberable, :validatable, :omniauthable 
+  has_many :posts, dependent: :destroy
   # Roles, add other roles as required
   enum role: {
     user: 0,
